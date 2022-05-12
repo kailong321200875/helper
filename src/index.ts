@@ -1,5 +1,5 @@
-// export * from './color'
-// export * from './is'
-export const a = () => {
-  return 'sss'
-}
+export * from './color'
+export * from './is'
+// export const a = () => {
+//   return 'sss'
+// }
