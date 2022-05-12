@@ -6,31 +6,28 @@ import commonjs from '@rollup/plugin-commonjs'
 import json from '@rollup/plugin-json'
 import alias from '@rollup/plugin-alias'
 import { eslint } from 'rollup-plugin-eslint'
+import { terser } from 'rollup-plugin-terser'
+import typescript from '@rollup/plugin-typescript'
 
 const entries = [
   'src/index.ts',
 ]
 
 const plugins = [
-  alias({
-    entries: [
-      { find: /^node:(.+)$/, replacement: '$1' },
-    ],
-  }),
+  alias(),
   resolve({
     preferBuiltins: true,
   }),
   json(),
+  typescript(),
   commonjs(),
-  esbuild({
-    target: 'node14',
-  }),
   // 验证导入的文件
   eslint({
     throwOnError: true, // lint 结果有错误将会抛出异常
     include: ['src/**/*.ts'],
     exclude: ['node_modules/**'],
   }),
+  terser(),
 ]
 
 export default [
