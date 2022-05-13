@@ -19,7 +19,7 @@ jobs:
 
       - run: npx conventional-github-releaser -p angular
         env:
-          CONVENTIONAL_GITHUB_RELEASER_TOKEN: ${{secrets.ACTIONS_DEPLOY_KEY}}
+          CONVENTIONAL_GITHUB_RELEASER_TOKEN: ${{secrets.TOOL_HELPER_GITHUB_TOKEN}}
 
   push-to-gh-pages:
     needs: [release]
