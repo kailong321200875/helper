@@ -19,7 +19,7 @@ jobs:
 
       - run: npx conventional-github-releaser -p angular
         env:
-          CONVENTIONAL_GITHUB_RELEASER_TOKEN: ${{secrets.TOOL_HELPER_GITHUB_TOKEN}}
+          CONVENTIONAL_GITHUB_RELEASER_TOKEN: ${{secrets.ACTIONS_DEPLOY_KEY}}
 
   push-to-gh-pages:
     needs: [release]
@@ -40,10 +40,10 @@ jobs:
 
       - name: Set SSH environment
         env:
-          DOCS_DEPLOY_KEY: ${{ secrets.TOOL_HELPER_GITHUB_TOKEN }}
+          DOCS_DEPLOY_KEY: ${{ secrets.ACTIONS_DEPLOY_KEY }}
         run: |
           mkdir -p ~/.ssh/
-          echo "$TOOL_HELPER_GITHUB_TOKEN" > ~/.ssh/id_rsa
+          echo "$ACTIONS_DEPLOY_KEY" > ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
           ssh-keyscan github.com > ~/.ssh/known_hosts
           chmod 700 ~/.ssh && chmod 600 ~/.ssh/*
@@ -58,7 +58,7 @@ jobs:
       - name: Deploy github
         uses: peaceiris/actions-gh-pages@v3
         with:
-          deploy_key: ${{secrets.TOOL_HELPER_GITHUB_TOKEN}}
+          deploy_key: ${{secrets.ACTIONS_DEPLOY_KEY}}
           publish_branch: gh-pages
           publish_dir: ./docs
           force_orphan: true
@@ -68,7 +68,7 @@ jobs:
         with:
           src: github/kailong321200875 # 源端账户名(github)
           dst: gitee/kailong110120130 # 目的端账户名(gitee)
-          dst_key: ${{ secrets.TOOL_HELPER_GITHUB_TOKEN }} # SSH密钥对中的私钥
+          dst_key: ${{ secrets.ACTIONS_DEPLOY_KEY }} # SSH密钥对中的私钥
           dst_token: ${{ secrets.GITEE_TOKEN }} # Gitee账户的私人令牌
           account_type: user # 账户类型
           clone_style: 'https' # 使用https方式进行clone，也可以使用ssh
