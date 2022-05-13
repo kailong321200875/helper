@@ -5,8 +5,7 @@ import commonjs from '@rollup/plugin-commonjs'
 import json from '@rollup/plugin-json'
 import alias from '@rollup/plugin-alias'
 import { eslint } from 'rollup-plugin-eslint'
-import { terser } from 'rollup-plugin-terser'
-// import typescript from '@rollup/plugin-typescript'
+import esbuild from 'rollup-plugin-esbuild'
 
 import typescript from 'rollup-plugin-typescript2'
 
@@ -35,7 +34,9 @@ const plugins = [
   json(),
   typescript(),
   commonjs(),
-  terser(),
+  esbuild({
+    minify: process.env.NODE_ENV === 'production'
+  }),
 ]
 
 export default [
