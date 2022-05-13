@@ -8,4 +8,4 @@ jspm_packages/
 typings/
 dist
 .idea
-*.d.ts
+index.d.ts
