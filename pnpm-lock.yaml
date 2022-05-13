@@ -12,6 +12,7 @@ specifiers:
   '@typescript-eslint/eslint-plugin': ^5.23.0
   '@typescript-eslint/parser': ^5.23.0
   bumpp: ^7.1.1
+  cross-env: ^7.0.3
   esbuild: ^0.14.39
   eslint: ^8.15.0
   eslint-config-prettier: ^8.5.0
@@ -40,6 +41,7 @@ devDependencies:
   '@typescript-eslint/eslint-plugin': registry.npmmirror.com/@typescript-eslint/eslint-plugin/5.23.0_c63nfttrfhylg3zmgcxfslaw44
   '@typescript-eslint/parser': registry.npmmirror.com/@typescript-eslint/parser/5.23.0_hcfsmds2fshutdssjqluwm76uu
   bumpp: registry.npmmirror.com/bumpp/7.1.1
+  cross-env: registry.npmmirror.com/cross-env/7.0.3
   esbuild: registry.npmmirror.com/esbuild/0.14.39
   eslint: registry.npmmirror.com/eslint/8.15.0
   eslint-config-prettier: registry.npmmirror.com/eslint-config-prettier/8.5.0_eslint@8.15.0
@@ -253,6 +255,8 @@ packages:
     version: 7.17.10
     engines: {node: '>=6.0.0'}
     hasBin: true
+    dependencies:
+      '@babel/types': registry.npmmirror.com/@babel/types/7.17.10
     dev: true
 
   registry.npmmirror.com/@babel/template/7.16.7:
@@ -1417,6 +1421,16 @@ packages:
     resolution: {integrity: sha512-dcKFX3jn0MpIaXjisoRvexIJVEKzaq7z2rZKxf+MSr9TkdmHmsU4m2lcLojrj/FHl8mk5VxMmYA+ftRkP/3oKQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/create-require/-/create-require-1.1.1.tgz}
     name: create-require
     version: 1.1.1
+    dev: true
+
+  registry.npmmirror.com/cross-env/7.0.3:
+    resolution: {integrity: sha512-+/HKd6EgcQCJGh2PSjZuUitQBQynKor4wrFbRg4DtAgS1aWO+gU52xpH7M9ScGgXSYmAVS9bIJ8EzuaGw0oNAw==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/cross-env/-/cross-env-7.0.3.tgz}
+    name: cross-env
+    version: 7.0.3
+    engines: {node: '>=10.14', npm: '>=6', yarn: '>=1'}
+    hasBin: true
+    dependencies:
+      cross-spawn: registry.npmmirror.com/cross-spawn/7.0.3
     dev: true
 
   registry.npmmirror.com/cross-spawn/7.0.3:

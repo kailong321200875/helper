@@ -5,8 +5,8 @@
   "packageManager": "pnpm@7.0.1",
   "private": false,
   "scripts": {
-    "build": "NODE_ENV=production rollup -c",
-    "dev": "NODE_ENV=development rollup -c --watch",
+    "build": "cross-env NODE_ENV=production rollup -c",
+    "dev": "cross-env NODE_ENV=development rollup -c --watch",
     "typecheck": "tsc --noEmit",
     "lint": "eslint .",
     "lint:eslint": "eslint . --fix",
@@ -62,6 +62,7 @@
     "@typescript-eslint/eslint-plugin": "^5.23.0",
     "@typescript-eslint/parser": "^5.23.0",
     "bumpp": "^7.1.1",
+    "cross-env": "^7.0.3",
     "esbuild": "^0.14.39",
     "eslint": "^8.15.0",
     "eslint-config-prettier": "^8.5.0",
