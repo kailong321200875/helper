@@ -7,15 +7,16 @@
   "scripts": {
     "build": "NODE_ENV=production rollup -c",
     "dev": "NODE_ENV=development rollup -c --watch",
+    "typecheck": "tsc --noEmit",
     "lint:eslint": "eslint . --fix",
     "lint:format": "prettier --write --loglevel warn \"**/*.{js,ts}\"",
-    "prepublishOnly": "npm run build",
-    "release": "bumpp --commit --push --tag && npm publish",
-    "typecheck": "tsc --noEmit",
-    "test": "vitest",
+    "lint:lint-staged": "lint-staged -c ./.husky/lintstagedrc.js",
+    "lint:all": "pnpm run lint:eslint && pnpm run lint:format",
     "doc": "typedoc --options typedoc.json",
-    "prepare": "husky install",
-    "lint:lint-staged": "lint-staged -c ./.husky/lintstagedrc.js"
+    "prepublishOnly": "pnpm run build",
+    "release": "bumpp --commit --push --tag && npm publish",
+    "test": "vitest",
+    "prepare": "husky install"
   },
   "homepage": "https://github.com/kailong321200875/tool-helper",
   "bugs": {
