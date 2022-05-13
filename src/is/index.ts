@@ -45,3 +45,19 @@ export const isEdge = (): boolean => {
 export const isNumber = (val: unknown): boolean => {
   return is(val, 'Number')
 }
+
+/**
+ * 判断是否是数组类型
+ *
+ * @version 1.2.0
+ * @param val 需要验证的值
+ * @category Is
+ * @example
+ *
+ * ``` typescript
+ * isArray([1, 2, 3])
+ * ```
+ */
+export const isArray = (val: any): val is Array<any> => {
+  return val && Array.isArray(val)
+}
