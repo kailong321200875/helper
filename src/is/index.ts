@@ -1,4 +1,4 @@
-import { is } from '../.helper'
+import { is } from '../public'
 
 /**
  * 判断是否是服务器环境
