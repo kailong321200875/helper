@@ -5,7 +5,7 @@ import json from '@rollup/plugin-json'
 import alias from '@rollup/plugin-alias'
 import esbuild from 'rollup-plugin-esbuild'
 import typescript from 'rollup-plugin-typescript2'
-import babel from 'rollup-plugin-babel'
+import babel from '@rollup/plugin-babel'
 
 const entries = ['src/index.ts']
 
