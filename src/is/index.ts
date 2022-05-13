@@ -27,8 +27,6 @@ export const isServer = (): boolean => {
  * ```
  */
 export const isEdge = (): boolean => {
-  let a = ''
-  console.log(a)
   return !isServer() && navigator.userAgent.indexOf('Edge') > -1
 }
 

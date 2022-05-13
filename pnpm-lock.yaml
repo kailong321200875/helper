@@ -11,6 +11,7 @@ specifiers:
   '@types/node': ^17.0.32
   '@typescript-eslint/eslint-plugin': ^5.23.0
   '@typescript-eslint/parser': ^5.23.0
+  bump: ^0.2.5
   esbuild: ^0.14.39
   eslint: ^8.15.0
   eslint-config-prettier: ^8.5.0
@@ -39,6 +40,7 @@ devDependencies:
   '@types/node': registry.npmmirror.com/@types/node/17.0.33
   '@typescript-eslint/eslint-plugin': registry.npmmirror.com/@typescript-eslint/eslint-plugin/5.23.0_c63nfttrfhylg3zmgcxfslaw44
   '@typescript-eslint/parser': registry.npmmirror.com/@typescript-eslint/parser/5.23.0_hcfsmds2fshutdssjqluwm76uu
+  bump: registry.npmmirror.com/bump/0.2.5
   esbuild: registry.npmmirror.com/esbuild/0.14.39
   eslint: registry.npmmirror.com/eslint/8.15.0
   eslint-config-prettier: registry.npmmirror.com/eslint-config-prettier/8.5.0_eslint@8.15.0
@@ -1163,6 +1165,13 @@ packages:
     name: builtin-modules
     version: 3.3.0
     engines: {node: '>=6'}
+    dev: true
+
+  registry.npmmirror.com/bump/0.2.5:
+    resolution: {integrity: sha512-d4CZYvcP317+twjo7PhGd+EptYjvw83itgaxbJtJnHE64qH29qMtqAQ5vb3x3Su7WuaPjow88GBgp0FDBxbm8w==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/bump/-/bump-0.2.5.tgz}
+    name: bump
+    version: 0.2.5
+    hasBin: true
     dev: true
 
   registry.npmmirror.com/callsites/3.1.0:
