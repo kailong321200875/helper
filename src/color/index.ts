@@ -10,7 +10,7 @@
  * isHexColor('#fff')
  * ```
  */
- export const isHexColor = (color: string): boolean => {
+export const isHexColor = (color: string): boolean => {
   const reg = /^#([0-9a-fA-F]{3}|[0-9a-fA-f]{6})$/
   return reg.test(color)
 }

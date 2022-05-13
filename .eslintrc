@@ -1,8 +1,10 @@
 {
-  "parser": "@typescript-eslint/parser", // 使用 ts 解析器
+  "root": true,
   "extends": [
     "eslint:recommended", // eslint 推荐规则
-    "plugin:@typescript-eslint/recommended" // ts 推荐规则
+    "plugin:@typescript-eslint/recommended", // ts 推荐规则
+    "prettier",
+    "plugin:prettier/recommended"
   ],
   "plugins": ["@typescript-eslint"],
   "env": {
@@ -11,13 +13,16 @@
     "es6": true
   },
   "parserOptions": {
-    "ecmaVersion": 2019,
+    "parser": "@typescript-eslint/parser",
+    "ecmaVersion": 2020,
     "sourceType": "module",
+    "jsxPragma": "React",
     "ecmaFeatures": {
-      "experimentalObjectRestSpread": true
+      "jsx": true
     }
   },
   "rules": {
-    "@typescript-eslint/no-explicit-any": ["off"]
+    "@typescript-eslint/no-explicit-any": ["off"],
+    "prettier/prettier": ["off"]
   }
 }

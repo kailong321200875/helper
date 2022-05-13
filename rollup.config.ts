@@ -1,34 +1,28 @@
-
 import dts from 'rollup-plugin-dts'
 import resolve from '@rollup/plugin-node-resolve'
 import commonjs from '@rollup/plugin-commonjs'
 import json from '@rollup/plugin-json'
 import alias from '@rollup/plugin-alias'
-import { eslint } from 'rollup-plugin-eslint'
+// import { eslint } from 'rollup-plugin-eslint'
 import esbuild from 'rollup-plugin-esbuild'
-
 import typescript from 'rollup-plugin-typescript2'
-
-
 import babel from 'rollup-plugin-babel'
 
-const entries = [
-  'src/index.ts',
-]
+const entries = ['src/index.ts']
 
 const plugins = [
   // 验证导入的文件
-  eslint({
-    throwOnError: true, // lint 结果有错误将会抛出异常
-    include: ['src/**/*.ts'],
-    exclude: ['node_modules/**'],
-  }),
+  // eslint({
+  //   throwOnError: true, // lint 结果有错误将会抛出异常
+  //   include: ['src/**/*.ts'],
+  //   exclude: ['node_modules/**'],
+  // }),
   babel({
     babelrc: false,
-    presets: [['env', { modules: false }]],
+    presets: [['env', { modules: false }]]
   }),
   resolve({
-    preferBuiltins: true,
+    preferBuiltins: true
   }),
   alias(),
   json(),
@@ -36,34 +30,34 @@ const plugins = [
   commonjs(),
   esbuild({
     minify: process.env.NODE_ENV === 'production'
-  }),
+  })
 ]
 
 export default [
-  ...entries.map(input => ({
+  ...entries.map((input) => ({
     input,
     output: [
       {
         file: input.replace('src/', 'dist/').replace('.ts', '.mjs'),
         format: 'esm',
+        sourcemap: process.env.NODE_ENV === 'production' ? 'dist/' : false
       },
       {
         file: input.replace('src/', 'dist/').replace('.ts', '.cjs'),
         format: 'cjs',
-      },
+        sourcemap: process.env.NODE_ENV === 'production' ? 'dist/' : false
+      }
     ],
     external: [],
-    plugins,
+    plugins
   })),
-  ...entries.map(input => ({
+  ...entries.map((input) => ({
     input,
     output: {
       file: input.replace('src/', '').replace('.ts', '.d.ts'),
-      format: 'esm',
+      format: 'esm'
     },
     external: [],
-    plugins: [
-      dts({ respectExternal: true }),
-    ],
-  })),
+    plugins: [dts({ respectExternal: true })]
+  }))
 ]

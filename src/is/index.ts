@@ -42,6 +42,6 @@ export const isEdge = (): boolean => {
  * isNumber(123)
  * ```
  */
- export const isNumber = (val: unknown): boolean => {
+export const isNumber = (val: unknown): boolean => {
   return is(val, 'Number')
 }
