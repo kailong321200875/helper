@@ -89,3 +89,8 @@ tools.isNumber('test')
 ## 开源协议
 
 [MIT](./LICENSE)
+
+## 贡献者
+
+<!-- readme: collaborators,contributors -start -->
+<!-- readme: collaborators,contributors -end -->
