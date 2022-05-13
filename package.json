@@ -8,7 +8,7 @@
     "build": "NODE_ENV=production rollup -c",
     "dev": "NODE_ENV=development rollup -c --watch",
     "typecheck": "tsc --noEmit",
-    "lint:eslint": "eslint . --fix",
+    "lint:eslint": "eslint .",
     "lint:format": "prettier --write --loglevel warn \"**/*.{js,ts}\"",
     "lint:lint-staged": "lint-staged -c ./.husky/lintstagedrc.js",
     "lint:all": "pnpm run lint:eslint && pnpm run lint:format",
