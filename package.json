@@ -13,7 +13,9 @@
     "release": "bumpp --commit --push --tag && npm publish",
     "typecheck": "tsc --noEmit",
     "test": "vitest",
-    "doc": "typedoc --options typedoc.json"
+    "doc": "typedoc --options typedoc.json",
+    "prepare": "husky install",
+    "lint:lint-staged": "lint-staged -c ./.husky/lintstagedrc.js"
   },
   "homepage": "https://github.com/kailong321200875/tool-helper",
   "bugs": {
@@ -49,6 +51,8 @@
   "sideEffects": false,
   "devDependencies": {
     "@babel/core": "^7.17.10",
+    "@commitlint/cli": "^16.2.4",
+    "@commitlint/config-conventional": "^16.2.4",
     "@rollup/plugin-alias": "^3.1.9",
     "@rollup/plugin-commonjs": "^22.0.0",
     "@rollup/plugin-json": "^4.1.0",
@@ -59,8 +63,9 @@
     "esbuild": "^0.14.39",
     "eslint": "^8.15.0",
     "eslint-config-prettier": "^8.5.0",
-    "eslint-define-config": "^1.4.0",
     "eslint-plugin-prettier": "^4.0.0",
+    "husky": "^8.0.1",
+    "lint-staged": "^12.4.1",
     "prettier": "^2.6.2",
     "rollup": "^2.72.1",
     "rollup-plugin-babel": "^4.4.0",
