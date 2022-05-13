@@ -46,7 +46,7 @@ import { isNumber } from 'tool-helper'
 isNumber('test')
 ```
 
-### cjs
+### CJS
 
 ```js
 const tools = require('tool-helper')
