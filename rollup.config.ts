@@ -1,5 +1,4 @@
 
-import esbuild from 'rollup-plugin-esbuild'
 import dts from 'rollup-plugin-dts'
 import resolve from '@rollup/plugin-node-resolve'
 import commonjs from '@rollup/plugin-commonjs'
@@ -7,26 +6,35 @@ import json from '@rollup/plugin-json'
 import alias from '@rollup/plugin-alias'
 import { eslint } from 'rollup-plugin-eslint'
 import { terser } from 'rollup-plugin-terser'
-import typescript from '@rollup/plugin-typescript'
+// import typescript from '@rollup/plugin-typescript'
+
+import typescript from 'rollup-plugin-typescript2'
+
+
+import babel from 'rollup-plugin-babel'
 
 const entries = [
   'src/index.ts',
 ]
 
 const plugins = [
-  alias(),
-  resolve({
-    preferBuiltins: true,
-  }),
-  json(),
-  typescript(),
-  commonjs(),
   // 验证导入的文件
   eslint({
     throwOnError: true, // lint 结果有错误将会抛出异常
     include: ['src/**/*.ts'],
     exclude: ['node_modules/**'],
   }),
+  babel({
+    babelrc: false,
+    presets: [['env', { modules: false }]],
+  }),
+  resolve({
+    preferBuiltins: true,
+  }),
+  alias(),
+  json(),
+  typescript(),
+  commonjs(),
   terser(),
 ]
 
