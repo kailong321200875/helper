@@ -14,7 +14,7 @@
     "lint:lint-staged": "lint-staged -c ./.husky/lintstagedrc.js",
     "lint:all": "pnpm run lint:eslint && pnpm run lint:format",
     "doc": "typedoc --options typedoc.json",
-    "release": "bumpp --commit \"release: release v%s\" --push --tag && npm publish",
+    "release": "bumpp --commit \"release: release v%s\" --push --tag && pnpm run build && npm publish",
     "test": "vitest",
     "prepare": "husky install"
   },
