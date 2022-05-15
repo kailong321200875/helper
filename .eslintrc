@@ -23,6 +23,8 @@
   },
   "rules": {
     "@typescript-eslint/no-explicit-any": ["off"],
+    "@typescript-eslint/ban-types": ["off"],
+    "no-useless-escape": ["off"],
     "prettier/prettier": ["off"]
   }
 }
