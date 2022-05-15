@@ -1,12 +1,11 @@
+const toString = Object.prototype.toString
+
 /**
  * 判断类型公共方法
- *
- * @version 1.1.0
  * @category Public
  * @param val 需要验证的值
  * @prarm type 需要验证的类型
  * @example
- *
  * ``` typescript
  * is(123, 'Number')
  * ```
@@ -17,12 +16,9 @@ export const is = (val: unknown, type: string): boolean => {
 
 /**
  * 去除两边空格
- *
- * @version 1.1.0
  * @category Public
  * @param s 去除空格的字符串
  * @example
- *
  * ``` typescript
  * trim('  123  ')
  * ```

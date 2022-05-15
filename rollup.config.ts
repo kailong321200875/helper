@@ -12,6 +12,7 @@ const entries = ['src/index.ts']
 const plugins = [
   babel({
     babelrc: false,
+    babelHelpers: 'bundled',
     presets: [['env', { modules: false }]]
   }),
   resolve({
