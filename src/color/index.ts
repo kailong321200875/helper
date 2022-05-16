@@ -91,7 +91,10 @@ export const colorIsDark = (color: string): boolean => {
  * darken('#fff', 6)
  * ```
  */
-export const darken = (color: string, amount: number) => {
+export const darken = (color: string, amount: number): string | undefined => {
+  if (color.length < 6) {
+    throw new Error('请遵循 #ffffff 格式')
+  }
   color = color.indexOf('#') >= 0 ? color.substring(1, color.length) : color
   amount = Math.trunc((255 * amount) / 100)
   return `#${subtractLight(color.substring(0, 2), amount)}${subtractLight(
@@ -110,7 +113,10 @@ export const darken = (color: string, amount: number) => {
  * lighten('#333', 6)
  * ```
  */
-export const lighten = (color: string, amount: number) => {
+export const lighten = (color: string, amount: number): string | undefined => {
+  if (color.length < 6) {
+    throw new Error('请遵循 #ffffff 格式')
+  }
   color = color.indexOf('#') >= 0 ? color.substring(1, color.length) : color
   amount = Math.trunc((255 * amount) / 100)
   return `#${addLight(color.substring(0, 2), amount)}${addLight(
