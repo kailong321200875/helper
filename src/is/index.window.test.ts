@@ -1,6 +1,6 @@
 // @vitest-environment jsdom
 import { expect, it } from 'vitest'
-import { isServer, isEdge, isElement, isClient, isDark } from './index'
+import { isServer, isEdge, isElement, isClient } from './index'
 
 it('isServer', () => {
   expect(isServer()).toBeFalsy()
