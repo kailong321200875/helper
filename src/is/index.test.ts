@@ -1,5 +1,5 @@
 import { expect, it } from 'vitest'
-import { isServer, isEdge, isNumber, isArray, isDef, isUnDef, isObject, isString, isEmpty, isDate, isNull, isNullAndUnDef, isNullOrUnDef, isFunction, isPromise, isRegExp, isWindow, isElement, isMap, isClient, isUrl } from './index'
+import { isServer, isEdge, isNumber, isArray, isDef, isUnDef, isObject, isString, isEmpty, isDate, isNull, isNullAndUnDef, isNullOrUnDef, isFunction, isPromise, isRegExp, isElement, isMap, isClient, isUrl } from './index'
 
 it('isServer', () => {
   expect(isServer()).toBeTruthy()
@@ -124,11 +124,6 @@ it('isRegExp', () => {
   expect(isRegExp(/\d+/)).toBeTruthy()
   expect(isRegExp(new RegExp(/\d+/))).toBeTruthy()
   expect(isRegExp(123)).toBeFalsy()
-})
-
-// TODO: 如何模拟一个window
-it('isWindow', () => {
-  expect(isWindow(123)).toBeFalsy()
 })
 
 it('isElement', () => {

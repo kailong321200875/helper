@@ -241,7 +241,7 @@ export const isWindow = (val: any): val is Window => {
  * ```
  */
 export const isElement = (val: unknown): val is Element => {
-  return isObject(val) && !!val.tagName
+  return !!(val && (val as Element).nodeType === 1)
 }
 
 /**
