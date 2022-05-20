@@ -1,6 +1,6 @@
 // @vitest-environment jsdom
 import { expect, it } from 'vitest'
-import { hasClass, addClass, removeClass, getBoundingClientRect } from './index'
+import { hasClass, addClass, removeClass, getBoundingClientRect, getStyle, setStyle } from './index'
 
 it('hasClass', () => {
   const div = document.createElement('div')
@@ -56,4 +56,18 @@ it('getBoundingClientRect', () => {
     x: 0,
     y: 0
   })
+})
+
+it('getStyle', () => {
+  const div = document.createElement('div')
+  div.innerText = 'test'
+  div.style.color = 'red'
+  expect(getStyle(div, 'color')).toBe('red')
+})
+
+it('setStyle', () => {
+  const div = document.createElement('div')
+  div.innerText = 'test'
+  setStyle(div, 'color', 'red')
+  expect(getStyle(div, 'color')).toBe('red')
 })

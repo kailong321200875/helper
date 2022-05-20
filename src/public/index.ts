@@ -36,7 +36,7 @@ export const trim = (s: string): string => {
  * @param name 需要转换的字符串
  * @example
  * ``` typescript
- * camelCase(test-test)
+ * camelCase('test-test')
  * ```
  */
  export const camelCase = (name: string): string => {

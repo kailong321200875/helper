@@ -5,32 +5,18 @@
 		<title>tool-helper-example</title>
 	</head>
 	<body>
-		<div id="div"></div>
+		<div id="div" style="width: 100px;height: 100px;overflow: auto;background-color: red;">
+			<div id="div2" style="width: 100px;height: 200px;"></div>
+		</div>
 	</body>
   <script type="module">
     // es module 引入
     import * as tool from '../dist/index.mjs'
-		const div = document.createElement('div')
-		const div1 = document.getElementById('div')
-		console.log(div1.nodeType)
-		console.log(tool.isElement(div))
-		console.log(tool.calculateBestTextColor('#cccccc'))
-		console.log(tool.calculateBestTextColor('#141414'))
+		console.log(tool.getScrollContainer(document.getElementById('div2')))
 
-		const SPECIAL_CHARS_REGEXP = /([\:\-\_]+(.))/g
-		const MOZ_HACK_REGEXP = /^moz([A-Z])/
-		const camelCase = function (name) {
-			return name
-				.replace(SPECIAL_CHARS_REGEXP, function (_, __, letter, offset) {
-					return offset ? letter.toUpperCase() : letter
-				})
-				.replace(MOZ_HACK_REGEXP, 'Moz$1')
-		}
-
-		console.log(camelCase('testTest'))
-		console.log(camelCase('test-test'))
-		console.log(camelCase('test_test'))
-		console.log(camelCase('Test_Test'))
-		console.log(camelCase('TestTest'))
+		const arr = [{value: 1, id: 1}, {value: 2, pid: 1, id: 2}]
+		const tree = [{value: 1, id: 1, children: [{value: 2, pid: 1, id: 2}]}]
+		console.log(tool.listToTree(arr))
+		console.log(tool.treeToList(tree))
   </script>
 </html>

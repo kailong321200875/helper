@@ -228,9 +228,19 @@ export const once = (el: HTMLElement, event: string, fn: EventListener): void =>
   on(el, event, listener)
 }
 
+/**
+ * 获取元素的某个样式
+ * @category Dom
+ * @param element 元素
+ * @param styleName 属性名
+ * @example
+ * ``` typescript
+ * getStyle(document.getElementById('test'), 'height')
+ * ```
+ */
 export const getStyle =
   ieVersion < 9
-    ? function (element: Element | any, styleName: string) {
+    ? (element: Element | any, styleName: string) => {
         if (isServer()) return
         if (!element || !styleName) return null
         styleName = camelCase(styleName)
@@ -254,7 +264,7 @@ export const getStyle =
           return element.style[styleName]
         }
       }
-    : function (element: Element | any, styleName: string) {
+    : (element: Element | any, styleName: string) => {
         if (isServer()) return
         if (!element || !styleName) return null
         styleName = camelCase(styleName)
@@ -269,8 +279,18 @@ export const getStyle =
         }
       }
 
-/* istanbul ignore next */
-export function setStyle(element: Element | any, styleName: any, value: any) {
+/**
+ * 设置元素的某个样式
+ * @category Dom
+ * @param element 元素
+ * @param styleName 属性名
+ * @param value 属性值
+ * @example
+ * ``` typescript
+ * setStyle(document.getElementById('test'), 'height', '100px')
+ * ```
+ */
+export const setStyle = (element: Element | any, styleName: any, value: any) => {
   if (!element || !styleName) return
 
   if (typeof styleName === 'object') {
@@ -289,8 +309,17 @@ export function setStyle(element: Element | any, styleName: any, value: any) {
   }
 }
 
-/* istanbul ignore next */
-export const isScroll = (el: Element, vertical: any) => {
+/**
+ * 判断元素overflow
+ * @category Dom
+ * @param el 元素
+ * @param vertical 滚动条方向，'overflow-y' | 'overflow-x'
+ * @example
+ * ``` typescript
+ * isScroll(document.getElementById('test'), 'overflow-y')
+ * ```
+ */
+export const isScroll = (el: Element, vertical?: 'overflow-y' | 'overflow-x') => {
   if (isServer()) return
 
   const determinedDirection = vertical !== null || vertical !== undefined
@@ -303,8 +332,17 @@ export const isScroll = (el: Element, vertical: any) => {
   return overflow.match(/(scroll|auto)/)
 }
 
-/* istanbul ignore next */
-export const getScrollContainer = (el: Element, vertical?: any) => {
+/**
+ * 判断元素的滚动容器
+ * @category Dom
+ * @param el 元素
+ * @param vertical 滚动条方向，'overflow-y' | 'overflow-x'
+ * @example
+ * ``` typescript
+ * getScrollContainer(document.getElementById('test'))
+ * ```
+ */
+export const getScrollContainer = (el: Element, vertical?: 'overflow-y' | 'overflow-x') => {
   if (isServer()) return
 
   let parent: any = el
@@ -321,7 +359,16 @@ export const getScrollContainer = (el: Element, vertical?: any) => {
   return parent
 }
 
-/* istanbul ignore next */
+/**
+ * 判断元素是否在某个容器内
+ * @category Dom
+ * @param el 元素
+ * @param container 父容器元素
+ * @example
+ * ``` typescript
+ * isInContainer(document.getElementById('test'), document.body)
+ * ```
+ */
 export const isInContainer = (el: Element, container: any) => {
   if (isServer() || !el || !container) return false
 

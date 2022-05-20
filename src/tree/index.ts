@@ -17,7 +17,16 @@ const DEFAULT_CONFIG: TreeHelperConfig = {
 
 const getConfig = (config: Partial<TreeHelperConfig>) => Object.assign({}, DEFAULT_CONFIG, config)
 
-// tree from list
+/**
+ * 一维数组转树形数据
+ * @param list 需要转换的数组
+ * @param config 树形的配置项
+ * @category Tree
+ * @example
+ * ``` typescript
+ * listToTree([{value: 1, id: 1}, {value: 2, pid: 1, id: 2}])
+ * ```
+ */
 export const listToTree = <T = any>(list: any[], config: Partial<TreeHelperConfig> = {}): T[] => {
   const conf = getConfig(config) as TreeHelperConfig
   const nodeMap = new Map()
@@ -35,6 +44,16 @@ export const listToTree = <T = any>(list: any[], config: Partial<TreeHelperConfi
   return result
 }
 
+/**
+ * 树形数据转一维数组
+ * @param tree 需要转换的树形数据
+ * @param config 树形的配置项
+ * @category Tree
+ * @example
+ * ``` typescript
+ * treeToList([{value: 1, id: 1, children: [{value: 2, pid: 1, id: 2}]}])
+ * ```
+ */
 export const treeToList = <T = any>(tree: any, config: Partial<TreeHelperConfig> = {}): T => {
   config = getConfig(config)
   const { children } = config
