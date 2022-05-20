@@ -1,10 +1,8 @@
 import { isServer } from '../is'
-import { trim } from '../public'
+import { trim, camelCase } from '../public'
 const ieVersion = isServer() ? 0 : Number((document as any).documentMode)
-const SPECIAL_CHARS_REGEXP = /([\:\-\_]+(.))/g
-const MOZ_HACK_REGEXP = /^moz([A-Z])/
 
-export interface ViewportOffsetResult {
+interface ViewportOffsetResult {
   left: number
   top: number
   right: number
@@ -13,15 +11,17 @@ export interface ViewportOffsetResult {
   bottomIncludeBody: number
 }
 
-const camelCase = function (name: string) {
-  return name
-    .replace(SPECIAL_CHARS_REGEXP, function (_, __, letter, offset) {
-      return offset ? letter.toUpperCase() : letter
-    })
-    .replace(MOZ_HACK_REGEXP, 'Moz$1')
-}
-
-export function hasClass(el: Element, cls: string) {
+/**
+ * 判断当前元素是否有某个className
+ * @category Dom
+ * @param el 指定的元素
+ * @param cls 需要判断是否存在的className
+ * @example
+ * ``` typescript
+ * hasClass(document.getElementById('test'), 'test-item')
+ * ```
+ */
+export const hasClass = (el: Element, cls: string): string | boolean => {
   if (!el || !cls) return false
   if (cls.indexOf(' ') !== -1) {
     throw new Error('className should not contain space.')
@@ -33,7 +33,17 @@ export function hasClass(el: Element, cls: string) {
   }
 }
 
-export function addClass(el: Element, cls: string) {
+/**
+ * 给某个元素添加className
+ * @category Dom
+ * @param el 指定的元素
+ * @param cls 需要添加的className
+ * @example
+ * ``` typescript
+ * addClass(document.getElementById('test'), 'test-item')
+ * ```
+ */
+export const addClass = (el: Element, cls: string) => {
   if (!el) return
   let curClass = el.className
   const classes = (cls || '').split(' ')
@@ -53,8 +63,17 @@ export function addClass(el: Element, cls: string) {
   }
 }
 
-/* istanbul ignore next */
-export function removeClass(el: Element, cls: string) {
+/**
+ * 给某个元素移除className
+ * @category Dom
+ * @param el 指定的元素
+ * @param cls 需要移除的className
+ * @example
+ * ``` typescript
+ * removeClass(document.getElementById('test'), 'test-item')
+ * ```
+ */
+export const removeClass = (el: Element, cls: string) => {
   if (!el || !cls) return
   const classes = cls.split(' ')
   let curClass = ' ' + el.className + ' '
@@ -74,7 +93,16 @@ export function removeClass(el: Element, cls: string) {
   }
 }
 
-export function getBoundingClientRect(element: Element): DOMRect | number {
+/**
+ * 返回元素的大小及其相对于视口的位置
+ * @category Dom
+ * @param element 元素
+ * @example
+ * ``` typescript
+ * getBoundingClientRect()
+ * ```
+ */
+export const getBoundingClientRect = (element: Element): DOMRect | number => {
   if (!element || !element.getBoundingClientRect) {
     return 0
   }
@@ -89,10 +117,14 @@ export function getBoundingClientRect(element: Element): DOMRect | number {
  *   bottom：元素最底端距离文档底端的距离
  *   rightIncludeBody：元素最左侧距离文档右侧的距离
  *   bottomIncludeBody：元素最底端距离文档最底部的距离
- *
- * @description:
+ * @category Dom
+ * @param element 元素
+ * @example
+ * ``` typescript
+ * getViewportOffset(document.getElementById('test'))
+ * ```
  */
-export function getViewportOffset(element: Element): ViewportOffsetResult {
+export const getViewportOffset = (element: Element): ViewportOffsetResult => {
   const doc = document.documentElement
 
   const docScrollLeft = doc.scrollLeft
@@ -127,27 +159,66 @@ export function getViewportOffset(element: Element): ViewportOffsetResult {
   }
 }
 
-export const on = function (
+/**
+ * 给元素绑定自定义监听事件
+ * @category Dom
+ * @param element 元素
+ * @param event 事件名
+ * @param handler 要触发的事件
+ * @example
+ * ``` typescript
+ * on(document.getElementById('test'), 'test', () => {
+ *   console.log('test')
+ * })
+ * ```
+ */
+export const on = (
   element: HTMLElement | Document | Window,
   event: string,
   handler: EventListenerOrEventListenerObject
-): void {
+): void => {
   if (element && event && handler) {
     element.addEventListener(event, handler, false)
   }
 }
 
-export const off = function (
+/**
+ * 给元素关闭自定义监听事件
+ * @category Dom
+ * @param element 元素
+ * @param event 事件名
+ * @param handler 要触发的事件
+ * @example
+ * ``` typescript
+ * off(document.getElementById('test'), 'test', () => {
+ *   console.log('test')
+ * })
+ * ```
+ */
+export const off = (
   element: HTMLElement | Document | Window,
   event: string,
   handler: any
-): void {
+): void => {
   if (element && event && handler) {
     element.removeEventListener(event, handler, false)
   }
 }
 
-export const once = function (el: HTMLElement, event: string, fn: EventListener): void {
+/**
+ * 给元素只绑定一次自定义监听事件
+ * @category Dom
+ * @param el 元素
+ * @param event 事件名
+ * @param fn 要触发的事件
+ * @example
+ * ``` typescript
+ * once(document.getElementById('test'), 'test', () => {
+ *   console.log('test')
+ * })
+ * ```
+ */
+export const once = (el: HTMLElement, event: string, fn: EventListener): void => {
   const listener = function (this: any, ...args: unknown[]) {
     if (fn) {
       fn.apply(this, args as any)

@@ -1,5 +1,8 @@
 const toString = Object.prototype.toString
 
+const SPECIAL_CHARS_REGEXP = /([\:\-\_]+(.))/g
+const MOZ_HACK_REGEXP = /^moz([A-Z])/
+
 /**
  * 判断类型公共方法
  * @category Public
@@ -25,4 +28,21 @@ export const is = (val: unknown, type: string): boolean => {
  */
 export const trim = (s: string): string => {
   return (s || '').replace(/^[\s\uFEFF]+|[\s\uFEFF]+$/g, '')
+}
+
+/**
+ * 字符串转驼峰
+ * @category Public
+ * @param name 需要转换的字符串
+ * @example
+ * ``` typescript
+ * camelCase(test-test)
+ * ```
+ */
+ export const camelCase = (name: string): string => {
+  return name
+    .replace(SPECIAL_CHARS_REGEXP, function (_, __, letter, offset) {
+      return offset ? letter.toUpperCase() : letter
+    })
+    .replace(MOZ_HACK_REGEXP, 'Moz$1')
 }
