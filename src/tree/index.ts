@@ -65,6 +65,20 @@ export const treeToList = <T = any>(tree: any, config: Partial<TreeHelperConfig>
   return result
 }
 
+/**
+ * 查找树形数据中指定的节点
+ * @param tree 树形数据
+ * @param func 查找节点的函数
+ * @param config 树形的配置项
+ * @category Tree
+ * @example
+ * ``` typescript
+ * const tree = [{value: 1, id: 1, children: [{value: 2, pid: 1, id: 2}]}]
+ * const node = findNode(tree, (node) => {
+ *   return node.value === 1
+ * })
+ * ```
+ */
 export const findNode = <T = any>(
   tree: any,
   func: Fn,
@@ -80,6 +94,20 @@ export const findNode = <T = any>(
   return null
 }
 
+/**
+ * 查找所有符合条件的节点
+ * @param tree 树形数据
+ * @param func 查找节点的函数
+ * @param config 树形的配置项
+ * @category Tree
+ * @example
+ * ``` typescript
+ * const tree = [{value: 1, id: 1, children: [{value: 2, pid: 1, id: 2}]}]
+ * const nodes = findNodeAll(tree, (node) => {
+ *   return node.value
+ * })
+ * ```
+ */
 export const findNodeAll = <T = any>(
   tree: any,
   func: Fn,
@@ -96,6 +124,20 @@ export const findNodeAll = <T = any>(
   return result
 }
 
+/**
+ * 查找父节点
+ * @param tree 树形数据
+ * @param func 查找节点的函数
+ * @param config 树形的配置项
+ * @category Tree
+ * @example
+ * ``` typescript
+ * const tree = [{value: 1, id: 1, children: [{value: 2, pid: 1, id: 2, children: [{value: 3, pid: 2, id: 3}]}]}]
+ * const nodes = findPath(tree, (node) => {
+ *   return node.value === 3
+ * })
+ * ```
+ */
 export const findPath = <T = any>(
   tree: any,
   func: Fn,
@@ -123,6 +165,20 @@ export const findPath = <T = any>(
   return null
 }
 
+/**
+ * 查找所有父节点
+ * @param tree 树形数据
+ * @param func 查找节点的函数
+ * @param config 树形的配置项
+ * @category Tree
+ * @example
+ * ``` typescript
+ * const tree = [{value: 1, id: 1, children: [{value: 2, pid: 1, id: 2, children: [{value: 3, pid: 2, id: 3}]}]}]
+ * const nodes = findPathAll(tree, (node) => {
+ *   return node.value === 3
+ * })
+ * ```
+ */
 export const findPathAll = (tree: any, func: Fn, config: Partial<TreeHelperConfig> = {}) => {
   config = getConfig(config)
   const path: any[] = []
@@ -145,6 +201,20 @@ export const findPathAll = (tree: any, func: Fn, config: Partial<TreeHelperConfi
   return result
 }
 
+/**
+ * 过滤树形数据
+ * @param tree 树形数据
+ * @param func 过滤节点的函数
+ * @param config 树形的配置项
+ * @category Tree
+ * @example
+ * ``` typescript
+ * const tree = [{value: 1, id: 1, children: [{value: 2, pid: 1, id: 2, children: [{value: 3, pid: 2, id: 3}]}]}]
+ * const nodes = filter(tree, (node) => {
+ *   return node.value === 2
+ * })
+ * ```
+ */
 export const filter = <T = any>(
   tree: T[],
   func: (n: T) => boolean,
@@ -163,6 +233,20 @@ export const filter = <T = any>(
   return listFilter(tree)
 }
 
+/**
+ * 循环遍历树形数据
+ * @param tree 树形数据
+ * @param func 循环遍历节点的函数
+ * @param config 树形的配置项
+ * @category Tree
+ * @example
+ * ``` typescript
+ * const tree = [{value: 1, id: 1, children: [{value: 2, pid: 1, id: 2, children: [{value: 3, pid: 2, id: 3}]}]}]
+ * const nodes = forEach(tree, (node) => {
+ *   console.log(node)
+ * })
+ * ```
+ */
 export const forEach = <T = any>(
   tree: T[],
   func: (n: T) => any,
@@ -181,7 +265,21 @@ export const forEach = <T = any>(
 }
 
 /**
- * @description: Extract tree specified structure
+ * 循环遍历树形数据返回符合条件的节点
+ * @param treeData 树形数据
+ * @param opt 树形的配置项
+ * @category Tree
+ * @example
+ * ``` typescript
+ * const tree = [{value: 1, id: 1, children: [{value: 2, pid: 1, id: 2, children: [{value: 3, pid: 2, id: 3}]}]}]
+ * const nodes = treeMap(tree, {
+ *   conversion: (node) => {
+ *     if (node.value === 3) {
+ *		   return node
+ *		 }
+ *	 }
+ * })
+ * ```
  */
 export const treeMap = <T = any>(
   treeData: T[],
@@ -190,10 +288,7 @@ export const treeMap = <T = any>(
   return treeData.map((item) => treeMapEach(item, opt))
 }
 
-/**
- * @description: Extract tree specified structure
- */
-export const treeMapEach = (
+const treeMapEach = (
   data: any,
   { children = 'children', conversion }: { children?: string; conversion: Fn }
 ) => {
@@ -217,10 +312,18 @@ export const treeMapEach = (
 }
 
 /**
- * 递归遍历树结构
- * @param treeDatas 树
- * @param callBack 回调
- * @param parentNode 父节点
+ * 递归遍历树形数据
+ * @param treeDatas 树形数据
+ * @param callBack 遍历节点的函数
+ * @param parentNode 父级节点
+ * @category Tree
+ * @example
+ * ``` typescript
+ * const tree = [{value: 1, id: 1, children: [{value: 2, pid: 1, id: 2, children: [{value: 3, pid: 2, id: 3}]}]}]
+ * eachTree(tree, (node, parent) => {
+ *   console.log(node, parent)
+ * })
+ * ```
  */
 export const eachTree = (treeDatas: any[], callBack: Fn, parentNode = {}) => {
   treeDatas.forEach((element) => {

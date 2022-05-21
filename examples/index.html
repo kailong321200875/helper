@@ -15,8 +15,9 @@
 		console.log(tool.getScrollContainer(document.getElementById('div2')))
 
 		const arr = [{value: 1, id: 1}, {value: 2, pid: 1, id: 2}]
-		const tree = [{value: 1, id: 1, children: [{value: 2, pid: 1, id: 2}]}]
-		console.log(tool.listToTree(arr))
-		console.log(tool.treeToList(tree))
+		const tree = [{value: 1, id: 1, children: [{value: 2, pid: 1, id: 2, children: [{value: 3, pid: 2, id: 3}]}]}]
+		tool.eachTree(tree, (node, parent) => {
+			console.log(node, parent)
+		})
   </script>
 </html>
