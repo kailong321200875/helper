@@ -1,6 +1,6 @@
 {
   "name": "tool-helper",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "description": "Collect commonly used toolsets. (收集常用的工具集)",
   "packageManager": "pnpm@7.0.1",
   "private": false,
