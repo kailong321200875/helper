@@ -14,7 +14,6 @@ const DEFAULT_CONFIG: TreeHelperConfig = {
   pid: 'pid'
 }
 
-
 const getConfig = (config: Partial<TreeHelperConfig>) => Object.assign({}, DEFAULT_CONFIG, config)
 
 /**

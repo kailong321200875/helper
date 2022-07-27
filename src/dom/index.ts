@@ -1,5 +1,5 @@
 import { isServer } from '../is'
-import { trim, camelCase } from '../public'
+import { trim, underlineToHump } from '../string'
 const ieVersion = isServer() ? 0 : Number((document as any).documentMode)
 
 interface ViewportOffsetResult {
@@ -243,7 +243,7 @@ export const getStyle =
     ? (element: Element | any, styleName: string) => {
         if (isServer()) return
         if (!element || !styleName) return null
-        styleName = camelCase(styleName)
+        styleName = underlineToHump(styleName)
         if (styleName === 'float') {
           styleName = 'styleFloat'
         }
@@ -267,7 +267,7 @@ export const getStyle =
     : (element: Element | any, styleName: string) => {
         if (isServer()) return
         if (!element || !styleName) return null
-        styleName = camelCase(styleName)
+        styleName = underlineToHump(styleName)
         if (styleName === 'float') {
           styleName = 'cssFloat'
         }
@@ -300,7 +300,7 @@ export const setStyle = (element: Element | any, styleName: any, value: any) => 
       }
     }
   } else {
-    styleName = camelCase(styleName)
+    styleName = underlineToHump(styleName)
     if (styleName === 'opacity' && ieVersion < 9) {
       element.style.filter = isNaN(value) ? '' : 'alpha(opacity=' + value * 100 + ')'
     } else {

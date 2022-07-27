@@ -5,7 +5,7 @@ import { isServer, isEdge, isElement, isClient, isDark, isWindow } from './index
 beforeAll(() => {
   Object.defineProperty(window, 'matchMedia', {
     writable: true,
-    value: vi.fn().mockImplementation(query => ({
+    value: vi.fn().mockImplementation((query) => ({
       matches: false,
       media: query,
       onchange: null,
@@ -43,5 +43,5 @@ it('isDark', () => {
 
 it('isWindow', () => {
   expect(isWindow(123)).toBeFalsy()
-  expect(isWindow(window)).toBeTruthy()
+  expect(isWindow(window)).toBeFalsy()
 })
