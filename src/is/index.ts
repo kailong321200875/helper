@@ -295,3 +295,53 @@ export const isUrl = (path: string): boolean => {
 export const isDark = (): boolean => {
   return window.matchMedia('(prefers-color-scheme: dark)').matches
 }
+
+/**
+ * 判断是否是IE浏览器
+ * @category Is
+ * @example
+ * ``` typescript
+ * isIE()
+ * ```
+ */
+export const isIE = (): boolean => {
+  return !!(window as any).ActiveXObject || 'ActiveXObject' in window
+}
+
+/**
+ * 判断是否是谷歌浏览器
+ * @category Is
+ * @example
+ * ``` typescript
+ * isIE()
+ * ```
+ */
+export const isGoogle = (): boolean => {
+  return navigator.userAgent.indexOf('Chrome') > -1
+}
+
+/**
+ * 判断是否是移动端
+ * @category Is
+ * @example
+ * ``` typescript
+ * isMobile()
+ * ```
+ */
+export const isMobile = (): boolean => {
+  return /(iPhone|iPod|Android|ios|iPad|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i.test(
+    navigator.userAgent
+  )
+}
+
+/**
+ * 判断是否是火狐浏览器
+ * @category Is
+ * @example
+ * ``` typescript
+ * isFirefox()
+ * ```
+ */
+export const isFirefox = (): boolean => {
+  return navigator.userAgent.indexOf('Firefox') > -1
+}
