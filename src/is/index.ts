@@ -345,3 +345,27 @@ export const isMobile = (): boolean => {
 export const isFirefox = (): boolean => {
   return navigator.userAgent.indexOf('Firefox') > -1
 }
+
+/**
+ * 判断是否是safri浏览器
+ * @category Is
+ * @example
+ * ``` typescript
+ * isSafari()
+ * ```
+ */
+export const isSafari = (): boolean => {
+  return navigator.userAgent.indexOf('Safari') > -1
+}
+
+/**
+ * 判断是否是在微信浏览器中
+ * @category Is
+ * @example
+ * ``` typescript
+ * isWeixin()
+ * ```
+ */
+export const isWeixin = (): boolean => {
+  return navigator.userAgent.indexOf('MicroMessenger') > -1
+}
