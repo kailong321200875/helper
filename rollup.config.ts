@@ -45,11 +45,11 @@ export default [
     input,
     output: [
       {
-        file: input.replace('src/', 'dist/').replace('.ts', '.mjs'),
+        file: input.replace('src/', 'es/').replace('.ts', '.mjs'),
         format: 'esm'
       },
       {
-        file: input.replace('src/', 'dist/').replace('.ts', '.cjs'),
+        file: input.replace('src/', 'lib/').replace('.ts', '.cjs'),
         format: 'cjs'
       }
     ],
@@ -59,7 +59,7 @@ export default [
   ...entries.map((input) => ({
     input,
     output: {
-      file: input.replace('src/', 'dist/').replace('.ts', '.d.ts'),
+      file: input.replace('src/', 'es/').replace('.ts', '.d.ts'),
       format: 'esm'
     },
     external: [],

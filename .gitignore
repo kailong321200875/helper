@@ -10,3 +10,5 @@ dist
 .idea
 index.d.ts
 docs
+es
+lib
