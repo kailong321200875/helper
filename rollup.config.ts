@@ -7,7 +7,20 @@ import esbuild from 'rollup-plugin-esbuild'
 import typescript from 'rollup-plugin-typescript2'
 import babel from '@rollup/plugin-babel'
 
-const entries = ['src/index.ts']
+// 后续要改成动态导入
+const entries = [
+  'src/index.ts',
+  'src/array/index.ts',
+  'src/attribute/index.ts',
+  'src/color/index.ts',
+  'src/color/index.ts',
+  'src/date/index.ts',
+  'src/dom/index.ts',
+  'src/is/index.ts',
+  'src/public/index.ts',
+  'src/string/index.ts',
+  'src/tree/index.ts'
+]
 
 const plugins = [
   babel({
@@ -46,7 +59,7 @@ export default [
   ...entries.map((input) => ({
     input,
     output: {
-      file: input.replace('src/', '').replace('.ts', '.d.ts'),
+      file: input.replace('src/', 'dist/').replace('.ts', '.d.ts'),
       format: 'esm'
     },
     external: [],
