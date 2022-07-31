@@ -45,7 +45,14 @@
       "import": "./dist/index.mjs",
       "require": "./dist/index.cjs",
       "types": "./dist/index.d.ts"
-    }
+    },
+    "./es": "./dist/index.mjs",
+    "./lib": "./dist/index.cjs",
+    "./es/*.mjs": "./dist/*/index.mjs",
+    "./es/*": "./dist/*/index.mjs",
+    "./lib/*.js": "./dist/*/index.cjs",
+    "./lib/*": "./dist/*/index.cjs",
+    "./*": "./*"
   },
   "files": [
     "dist",
