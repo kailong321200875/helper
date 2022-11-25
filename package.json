@@ -1,5 +1,6 @@
 {
   "name": "tool-helper",
+  "type": "module",
   "version": "1.4.3",
   "description": "Collect commonly used toolsets. (收集常用的工具集)",
   "packageManager": "pnpm@7.0.1",
@@ -10,8 +11,8 @@
     "typecheck": "tsc --noEmit",
     "lint": "eslint .",
     "lint:eslint": "eslint . --fix",
-    "lint:format": "prettier --write --loglevel warn \"**/*.{js,ts}\"",
-    "lint:lint-staged": "lint-staged -c ./.husky/lintstagedrc.js",
+    "lint:format": "prettier --write --loglevel warn \"**/*.{js,cjs,ts}\"",
+    "lint:lint-staged": "lint-staged -c ./.husky/lintstagedrc.cjs",
     "lint:all": "pnpm run lint:eslint && pnpm run lint:format",
     "doc": "typedoc --options typedoc.json",
     "prepublishOnly": "pnpm run build",
