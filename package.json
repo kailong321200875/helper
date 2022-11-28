@@ -19,6 +19,8 @@
     "release": "bumpp --commit \"release: release v%s\" --push --tag && npm publish",
     "npm:up": "npx npm-check-updates",
     "test": "vitest",
+    "test:watch": "vitest --watch",
+    "coverage": "vitest run --coverage",
     "prepare": "husky install"
   },
   "homepage": "https://github.com/kailong321200875/tool-helper",
@@ -65,6 +67,7 @@
     "@types/node": "^18.11.9",
     "@typescript-eslint/eslint-plugin": "^5.44.0",
     "@typescript-eslint/parser": "^5.44.0",
+    "@vitest/coverage-c8": "^0.25.3",
     "babel-preset-env": "^1.7.0",
     "bumpp": "^8.2.1",
     "cross-env": "^7.0.3",

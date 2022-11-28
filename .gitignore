@@ -10,3 +10,4 @@ dist
 .idea
 index.d.ts
 docs
+coverage
