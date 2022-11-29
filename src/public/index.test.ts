@@ -1,7 +1,7 @@
 import { expect, it } from 'vitest'
 import { is } from './index'
 
-it('public/is', () => {
+it('is', () => {
   // ToBeTruthy Test
   expect(is(1, 'Number')).toBeTruthy()
   expect(is(NaN, 'Number')).toBeTruthy()

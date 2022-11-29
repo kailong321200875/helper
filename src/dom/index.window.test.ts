@@ -9,6 +9,11 @@ it('hasClass', () => {
   expect(hasClass(div, 'div')).toBeFalsy()
   expect(hasClass(undefined as any, undefined as any)).toBeFalsy()
   expect(() => hasClass(div, ' div-test')).toThrowError('className should not contain space.')
+
+  const div2 = document.createElement('div')
+  ;(div2.classList as any) = undefined
+  div2.className = 'div2-test'
+  expect(hasClass(div2, 'div2-test')).toBeTruthy()
 })
 
 it('addClass', () => {

@@ -25,7 +25,10 @@ const arrObj: ArrItem[] = [
   }
 ]
 
-it('array/findIndex', () => {
+const arr2 = ['1', '2', '3']
+;(arr2.findIndex as any) = undefined
+
+it('findIndex', () => {
   expect(
     findIndex(arr, (item: string) => {
       return item === '4'
@@ -37,4 +40,10 @@ it('array/findIndex', () => {
       return item.name === 'letme'
     })
   ).equal(4)
+
+  expect(
+    findIndex(arr2, (item: string) => {
+      return item === '2'
+    })
+  ).equal(1)
 })

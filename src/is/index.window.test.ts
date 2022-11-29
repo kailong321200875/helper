@@ -1,6 +1,19 @@
 // @vitest-environment jsdom
 import { expect, it, beforeAll, vi } from 'vitest'
-import { isServer, isEdge, isElement, isClient, isDark, isWindow } from './index'
+import {
+  isServer,
+  isEdge,
+  isElement,
+  isClient,
+  isDark,
+  isWindow,
+  isIE,
+  isGoogle,
+  isMobile,
+  isFirefox,
+  isSafari,
+  isWeixin
+} from './index'
 
 beforeAll(() => {
   Object.defineProperty(window, 'matchMedia', {
@@ -44,4 +57,63 @@ it('isDark', () => {
 it('isWindow', () => {
   expect(isWindow(123)).toBeFalsy()
   expect(isWindow(window)).toBeFalsy()
+})
+
+it('isIE', () => {
+  expect(isIE()).toBeFalsy()
+})
+
+it('isGoogle', () => {
+  // 模拟一个 window.navigator
+  Object.defineProperty(window, 'navigator', {
+    writable: true,
+    value: {
+      userAgent: 'Chrome'
+    }
+  })
+  expect(isGoogle()).toBeTruthy()
+})
+
+it('isMobile', () => {
+  // 模拟一个 移动端window.navigator
+  Object.defineProperty(window, 'navigator', {
+    writable: true,
+    value: {
+      userAgent: 'Android'
+    }
+  })
+  expect(isMobile()).toBeTruthy()
+})
+
+it('isFirefox', () => {
+  // 模拟一个 火狐window.navigator
+  Object.defineProperty(window, 'navigator', {
+    writable: true,
+    value: {
+      userAgent: 'Firefox'
+    }
+  })
+  expect(isFirefox()).toBeTruthy()
+})
+
+it('isSafari', () => {
+  // 模拟一个 safari window.navigator
+  Object.defineProperty(window, 'navigator', {
+    writable: true,
+    value: {
+      userAgent: 'Safari'
+    }
+  })
+  expect(isSafari()).toBeTruthy()
+})
+
+it('isWeixin', () => {
+  // 模拟一个 微信 window.navigator
+  Object.defineProperty(window, 'navigator', {
+    writable: true,
+    value: {
+      userAgent: 'MicroMessenger'
+    }
+  })
+  expect(isWeixin()).toBeTruthy()
 })

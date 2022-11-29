@@ -2,7 +2,7 @@
 import { expect, it } from 'vitest'
 import { setCssVar, getCssVar } from './index'
 
-it('attribute/setCssVar', () => {
+it('setCssVar/getCssVar', () => {
   const div = document.createElement('div')
   setCssVar('--color', 'red', div)
   expect(getCssVar('--color', div)).equal('red')

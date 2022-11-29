@@ -1,5 +1,26 @@
 import { expect, it } from 'vitest'
-import { isServer, isEdge, isNumber, isArray, isDef, isUnDef, isObject, isString, isEmpty, isDate, isNull, isNullAndUnDef, isNullOrUnDef, isFunction, isPromise, isRegExp, isElement, isMap, isClient, isUrl } from './index'
+import {
+  isServer,
+  isEdge,
+  isNumber,
+  isArray,
+  isDef,
+  isUnDef,
+  isObject,
+  isString,
+  isEmpty,
+  isDate,
+  isNull,
+  isNullAndUnDef,
+  isNullOrUnDef,
+  isFunction,
+  isPromise,
+  isRegExp,
+  isElement,
+  isMap,
+  isClient,
+  isUrl
+} from './index'
 
 it('isServer', () => {
   expect(isServer()).toBeTruthy()
@@ -66,15 +87,19 @@ it('isEmpty', () => {
   expect(isEmpty('')).toBeTruthy()
   expect(isEmpty('123')).toBeFalsy()
   expect(isEmpty(new Map())).toBeTruthy()
-  expect(isEmpty(new Map([
-    [1, 'one'],
-    [2, 'two'],
-    [3, 'three'],
-  ]))).toBeFalsy()
+  expect(
+    isEmpty(
+      new Map([
+        [1, 'one'],
+        [2, 'two'],
+        [3, 'three']
+      ])
+    )
+  ).toBeFalsy()
   expect(isEmpty(new Set())).toBeTruthy()
   expect(isEmpty(new Set([1, 2, 3, 4]))).toBeFalsy()
   expect(isEmpty({})).toBeTruthy()
-  expect(isEmpty({test: '1'})).toBeFalsy()
+  expect(isEmpty({ test: '1' })).toBeFalsy()
 })
 
 it('isDate', () => {
@@ -102,12 +127,16 @@ it('isNullOrUnDef', () => {
 })
 
 it('isFunction', () => {
-  expect(isFunction(function() {
-    console.log('test')
-  })).toBeTruthy()
-  expect(isFunction(() => {
-    console.log('test')
-  })).toBeTruthy()
+  expect(
+    isFunction(function () {
+      console.log('test')
+    })
+  ).toBeTruthy()
+  expect(
+    isFunction(() => {
+      console.log('test')
+    })
+  ).toBeTruthy()
   expect(isFunction(class {})).toBeTruthy()
   expect(isFunction('123')).toBeFalsy()
 })
@@ -132,11 +161,15 @@ it('isElement', () => {
 
 it('isMap', () => {
   expect(isMap(new Map())).toBeTruthy()
-  expect(isMap(new Map([
-    [1, 'one'],
-    [2, 'two'],
-    [3, 'three'],
-  ]))).toBeTruthy()
+  expect(
+    isMap(
+      new Map([
+        [1, 'one'],
+        [2, 'two'],
+        [3, 'three']
+      ])
+    )
+  ).toBeTruthy()
   expect(isMap([])).toBeFalsy()
 })
 
