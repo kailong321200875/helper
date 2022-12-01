@@ -369,3 +369,17 @@ export const isSafari = (): boolean => {
 export const isWeixin = (): boolean => {
   return navigator.userAgent.indexOf('MicroMessenger') > -1
 }
+
+/**
+ * 判断是否是邮箱格式
+ * @category Is
+ * @param val 需要验证的值
+ * @example
+ * ``` typescript
+ * isEmail('321323@qq.com')
+ * ```
+ */
+export const isEmail = (val: string): boolean => {
+  const reg = /^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+(.[a-zA-Z0-9_-])+/g
+  return reg.test(val)
+}

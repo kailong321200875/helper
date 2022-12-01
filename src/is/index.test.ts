@@ -19,7 +19,8 @@ import {
   isElement,
   isMap,
   isClient,
-  isUrl
+  isUrl,
+  isEmail
 } from './index'
 
 it('isServer', () => {
@@ -182,4 +183,9 @@ it('isUrl', () => {
   expect(isUrl('www.baidu.com')).toBeTruthy()
   expect(isUrl('192.168.169.197:8080')).toBeFalsy()
   expect(isUrl('https://192.168.169.197:8080')).toBeTruthy()
+})
+
+it('isEmail', () => {
+  expect(isEmail('502431556@qq.com')).toBeTruthy()
+  expect(isEmail('502431556@qq')).toBeFalsy()
 })
