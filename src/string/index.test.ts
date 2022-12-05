@@ -1,5 +1,5 @@
 import { expect, it, expectTypeOf } from 'vitest'
-import { trim, underlineToHump, humpToUnderline, toAnyString } from './index'
+import { trim, underlineToHump, humpToUnderline, toAnyString, replaceAll } from './index'
 
 it('trim', () => {
   expect(trim(undefined as any)).equal('')
@@ -24,4 +24,8 @@ it('humpToUnderline', () => {
 
 it('toAnyString', () => {
   expectTypeOf(toAnyString()).toBeString()
+})
+
+it('replaceAll', () => {
+  expect(replaceAll('abcdefg', 'ab', '')).equal('cdefg')
 })
