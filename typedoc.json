@@ -1,6 +1,0 @@
-{
-  "entryPoints": ["./src"],
-  "exclude": "src/.helper/index.ts",
-  "out": "docs",
-  "readme": "./README.docs.md"
-}
