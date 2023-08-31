@@ -5,7 +5,8 @@
   "main": "index.js",
   "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "vitest",
+    "coverage": "vitest run --coverage",
     "typecheck": "tsc --noEmit",
     "lint": "eslint .",
     "lint:eslint": "eslint . --fix",
@@ -20,7 +21,8 @@
     "changeset": "changeset",
     "version-packages": "changeset version",
     "release": "pnpm build && pnpm release:only",
-    "release:only": "changeset publish --tag rc --registry=https://registry.npmjs.com/"
+    "release:only": "changeset publish --tag rc --registry=https://registry.npmjs.com/",
+    "plop": "plop --plopfile ./scripts/plopfile.mjs"
   },
   "keywords": [],
   "author": "",
@@ -38,6 +40,7 @@
     "@types/node": "^20.5.7",
     "@typescript-eslint/eslint-plugin": "^6.5.0",
     "@typescript-eslint/parser": "^6.5.0",
+    "@vitest/coverage-v8": "^0.34.3",
     "babel-preset-env": "^1.7.0",
     "cross-env": "^7.0.3",
     "esbuild": "^0.19.2",
@@ -46,13 +49,16 @@
     "eslint-plugin-prettier": "^5.0.0",
     "execa": "^8.0.1",
     "husky": "^8.0.3",
+    "jsdom": "^22.1.0",
     "lint-staged": "^14.0.1",
+    "plop": "^3.1.2",
     "prettier": "^3.0.3",
     "rollup": "^3.28.1",
     "rollup-plugin-dts": "^6.0.0",
     "rollup-plugin-esbuild": "^5.0.0",
     "rollup-plugin-typescript2": "^0.35.0",
     "ts-node": "^10.9.1",
-    "typescript": "^5.2.2"
+    "typescript": "^5.2.2",
+    "vitest": "^0.34.3"
   }
 }
