@@ -11,7 +11,9 @@
     "skipLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@design-view/*":["packages/*/src"]
+      "@design-view/*": ["packages/*/src"]
     }
-  }
+  },
+  "include": ["packages/*/src"],
+  "exclude": ["node_modules"]
 }
