@@ -2,11 +2,31 @@
   "name": "@design-view/is",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "cross-env NODE_ENV=development cross-env TARGET=is rollup -c ../../rollup.config.mjs --watch"
   },
-  "keywords": [],
+  "keywords": [
+    "helper",
+    "util",
+    "typescript",
+    "is"
+  ],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "main": "dist/index.cjs",
+  "module": "dist/index.mjs",
+  "types": "index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs",
+      "types": "./index.d.ts"
+    }
+  },
+  "files": [
+    "dist",
+    "*.d.ts"
+  ],
+  "sideEffects": false
 }

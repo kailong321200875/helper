@@ -9,7 +9,6 @@
  * replaceAll('abcdefg', 'a', 'b')
  * ```
  */
-export const replaceAll = (str: string, findText: string, repText: string) => {
-  const regExp = new RegExp(findText, 'g')
-  return str.replace(regExp, repText)
-}
+declare const replaceAll: (str: string, findText: string, repText: string) => string
+
+export { replaceAll }

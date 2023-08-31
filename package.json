@@ -14,7 +14,9 @@
     "lint:all": "pnpm run lint:eslint && pnpm run lint:format",
     "npm:up": "npx npm-check-updates",
     "prepare": "husky install",
-    "preinstall": "npx only-allow pnpm"
+    "preinstall": "npx only-allow pnpm",
+    "build": "cross-env NODE_ENV=production node ./scripts/build.mjs",
+    "dev": "pnpm -r --filter=@design-view/* run dev"
   },
   "keywords": [],
   "author": "",
@@ -28,6 +30,7 @@
     "@rollup/plugin-commonjs": "^25.0.4",
     "@rollup/plugin-json": "^6.0.0",
     "@rollup/plugin-node-resolve": "^15.2.1",
+    "@types/node": "^20.5.7",
     "@typescript-eslint/eslint-plugin": "^6.5.0",
     "@typescript-eslint/parser": "^6.5.0",
     "babel-preset-env": "^1.7.0",
@@ -36,6 +39,7 @@
     "eslint": "^8.48.0",
     "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-prettier": "^5.0.0",
+    "execa": "^8.0.1",
     "husky": "^8.0.3",
     "lint-staged": "^14.0.1",
     "prettier": "^3.0.3",
@@ -43,6 +47,7 @@
     "rollup-plugin-dts": "^6.0.0",
     "rollup-plugin-esbuild": "^5.0.0",
     "rollup-plugin-typescript2": "^0.35.0",
+    "ts-node": "^10.9.1",
     "typescript": "^5.2.2"
   }
 }
