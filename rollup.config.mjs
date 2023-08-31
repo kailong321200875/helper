@@ -8,9 +8,7 @@ import typescript from 'rollup-plugin-typescript2'
 import babel from '@rollup/plugin-babel'
 
 const entries = [
-  process.env.NODE_ENV === 'production'
-    ? `packages/${process.env.TARGET}/src/index.ts`
-    : `src/index.ts`
+  process.env.CUSTOM === '1' ? `src/index.ts` : `packages/${process.env.TARGET}/src/index.ts`
 ]
 
 const plugins = [

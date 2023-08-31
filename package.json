@@ -16,13 +16,18 @@
     "prepare": "husky install",
     "preinstall": "npx only-allow pnpm",
     "build": "cross-env NODE_ENV=production node ./scripts/build.mjs",
-    "dev": "pnpm -r --filter=@design-view/* run dev"
+    "dev": "pnpm -r --filter=@design-view/* run dev",
+    "changeset": "changeset",
+    "version-packages": "changeset version",
+    "release": "pnpm build && pnpm release:only",
+    "release:only": "changeset publish --registry=https://registry.npmjs.com/"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.22.11",
+    "@changesets/cli": "^2.26.2",
     "@commitlint/cli": "^17.7.1",
     "@commitlint/config-conventional": "^17.7.0",
     "@rollup/plugin-alias": "^5.0.0",

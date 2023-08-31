@@ -4,7 +4,8 @@
   "description": "",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "cross-env NODE_ENV=development cross-env TARGET=is rollup -c ../../rollup.config.mjs --watch"
+    "dev": "cross-env NODE_ENV=development cross-env TARGET=is cross-env CUSTOM=1 rollup -c ../../rollup.config.mjs --watch",
+    "build": "cross-env NODE_ENV=production cross-env TARGET=is cross-env CUSTOM=1 rollup -c ../../rollup.config.mjs"
   },
   "keywords": [
     "helper",
