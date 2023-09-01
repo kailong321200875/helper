@@ -1,17 +1,17 @@
 {
-  "name": "@design-view/is",
+  "name": "@design-view/dom",
   "version": "1.0.2",
   "description": "",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "cross-env NODE_ENV=development cross-env TARGET=is cross-env CUSTOM=1 rollup -c ../../rollup.config.mjs --watch",
-    "build": "cross-env NODE_ENV=production cross-env TARGET=is cross-env CUSTOM=1 rollup -c ../../rollup.config.mjs"
+    "dev": "cross-env NODE_ENV=development cross-env TARGET=dom cross-env CUSTOM=1 rollup -c ../../rollup.config.mjs --watch",
+    "build": "cross-env NODE_ENV=production cross-env TARGET=dom cross-env CUSTOM=1 rollup -c ../../rollup.config.mjs"
   },
   "keywords": [
     "helper",
     "util",
     "typescript",
-    "is"
+    "dom"
   ],
   "author": "",
   "license": "ISC",
@@ -29,5 +29,9 @@
     "dist",
     "*.d.ts"
   ],
-  "sideEffects": false
+  "sideEffects": false,
+  "dependencies": {
+    "@design-view/is": "workspace:*",
+    "@design-view/string": "workspace:*"
+  }
 }

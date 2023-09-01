@@ -27,7 +27,7 @@ export default {
         }),
         actions.push({
           type: 'add',
-          path: `../packages/${name}/__tests__/index.test.ts`,
+          path: `../packages/${name}/src/__tests__/index.test.ts`,
           templateFile: '../config/plop/template/test.hbs'
         })
     }

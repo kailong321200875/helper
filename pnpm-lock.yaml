@@ -70,6 +70,14 @@ importers:
       typescript: 5.2.2
       vitest: 0.34.3_jsdom@22.1.0
 
+  packages/dom:
+    specifiers:
+      '@design-view/is': workspace:*
+      '@design-view/string': workspace:^1.0.1
+    dependencies:
+      '@design-view/is': link:../is
+      '@design-view/string': link:../string
+
   packages/is:
     specifiers: {}
 
