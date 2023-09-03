@@ -7,6 +7,7 @@
   "scripts": {
     "test": "vitest",
     "coverage": "vitest run --coverage",
+    "doc": "typedoc --options typedoc.json",
     "typecheck": "tsc --noEmit",
     "lint": "eslint .",
     "lint:eslint": "eslint . --fix",
@@ -21,7 +22,7 @@
     "changeset": "changeset",
     "version-packages": "changeset version",
     "release": "pnpm build && pnpm release:only",
-    "release:only": "changeset publish --tag rc --registry=https://registry.npmjs.com/",
+    "release:only": "changeset publish --tag --registry=https://registry.npmjs.com/",
     "plop": "plop --plopfile ./scripts/plopfile.mjs"
   },
   "keywords": [],
@@ -58,6 +59,7 @@
     "rollup-plugin-esbuild": "^5.0.0",
     "rollup-plugin-typescript2": "^0.35.0",
     "ts-node": "^10.9.1",
+    "typedoc": "^0.25.0",
     "typescript": "^5.2.2",
     "vitest": "^0.34.3"
   }
