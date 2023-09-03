@@ -29,6 +29,14 @@ export default {
           type: 'add',
           path: `../packages/${name}/src/__tests__/index.test.ts`,
           templateFile: '../config/plop/template/test.hbs'
+        }),
+        actions.push({
+          type: 'add',
+          path: `../packages/${name}/README.md`,
+          templateFile: '../config/plop/template/readme.hbs',
+          data: {
+            name
+          }
         })
     }
 
