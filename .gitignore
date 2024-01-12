@@ -1,5 +1,9 @@
 node_modules
-dist*
-*.d.ts
+.DS_Store
+dist
+*.local
+/dist*
+*-lock.*
+pnpm-debug
 coverage
-.dumi
+docs

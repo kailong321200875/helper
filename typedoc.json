@@ -1,14 +1,5 @@
 {
-  "entryPoints": [
-    "./packages/array/src/index.ts",
-    "./packages/color/src/index.ts",
-    "./packages/date/src/index.ts",
-    "./packages/dom/src/index.ts",
-    "./packages/is/src/index.ts",
-    "./packages/string/src/index.ts",
-    "./packages/tree/src/index.ts",
-    "./packages/url/src/index.ts"
-  ],
+  "entryPoints": ["./src/string", "./src/is"],
   "out": "docs",
-  "readme": "./README.md"
+  "readme": "./README.docs.md"
 }

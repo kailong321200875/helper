@@ -45,23 +45,6 @@ export const humpToUnderline = (str: string): string => {
 }
 
 /**
- * 随机字符串
- * @category String
- * @example
- * ``` typescript
- * toAnyString()
- * ```
- */
-export function toAnyString() {
-  const str: string = 'xxxxx-xxxxx-4xxxx-yxxxx-xxxxx'.replace(/[xy]/g, (c: string) => {
-    const r: number = (Math.random() * 16) | 0
-    const v: number = c === 'x' ? r : (r & 0x3) | 0x8
-    return v.toString()
-  })
-  return str
-}
-
-/**
  * 替换字符串
  * @category String
  * @param str 需要替换的字符串
@@ -69,10 +52,10 @@ export function toAnyString() {
  * @param repText 替换的内容
  * @example
  * ``` typescript
- * replaceAll('abcdefg', 'a', 'b')
+ * replace('abcdefg', 'a', 'b')
  * ```
  */
-export const replaceAll = (str: string, findText: string, repText: string) => {
+export const replace = (str: string, findText: string, repText: string) => {
   const regExp = new RegExp(findText, 'g')
   return str.replace(regExp, repText)
 }
