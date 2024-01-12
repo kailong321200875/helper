@@ -52,7 +52,7 @@ jobs:
 
       - name: Build github
         run: |
-          pnpm install
+          pnpm install --no-frozen-lockfile
           pnpm run doc
 
       - name: Deploy github
