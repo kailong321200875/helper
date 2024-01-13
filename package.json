@@ -1,7 +1,7 @@
 {
   "name": "arsenal-helper",
   "type": "module",
-  "version": "1.7.10",
+  "version": "1.7.11",
   "description": "My arsenal. (工具集军火库)",
   "scripts": {
     "coverage": "vitest run --coverage",
