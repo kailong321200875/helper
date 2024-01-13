@@ -1,7 +1,7 @@
 {
   "name": "@cool/helper",
   "type": "module",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "My arsenal. (工具集军火库)",
   "private": false,
   "scripts": {
