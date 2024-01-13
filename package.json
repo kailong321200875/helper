@@ -1,5 +1,5 @@
 {
-  "name": "@design-view/helper",
+  "name": "cool-helper",
   "type": "module",
   "version": "1.7.5",
   "description": "My arsenal. (工具集军火库)",
@@ -38,15 +38,7 @@
   ],
   "author": "Archer <502431556@qq.com>",
   "license": "ISC",
-  "main": "./dist/index.cjs",
-  "module": "./dist/index.mjs",
-  "types": "./dist/index.d.ts",
   "exports": {
-    ".": {
-      "types": "./dist/index.d.ts",
-      "import": "./dist/index.mjs",
-      "require": "./dist/index.cjs"
-    },
     "./string": {
       "types": "./dist/string.d.ts",
       "import": "./dist/string.mjs",
