@@ -1,2 +1,2 @@
-export * from './is'
 export * from './string'
+export * from './is'
