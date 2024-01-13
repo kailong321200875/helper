@@ -1,5 +1,5 @@
 {
-  "name": "@plus/helper",
+  "name": "@design-view/helper",
   "type": "module",
   "version": "2.0.2",
   "description": "My arsenal. (工具集军火库)",
@@ -18,6 +18,7 @@
     "prepublishOnly": "pnpm run build",
     "release": "bumpp --commit \"release: release v%s\" --push --tag && npm publish",
     "npm:up": "pnpx npm-check-updates",
+    "test:ui": "vitest --ui",
     "test:watch": "vitest --watch",
     "test": "vitest run",
     "prepare": "husky install"
@@ -58,6 +59,7 @@
     "@typescript-eslint/eslint-plugin": "^6.18.1",
     "@typescript-eslint/parser": "^6.18.1",
     "@vitest/coverage-v8": "^1.1.3",
+    "@vitest/ui": "^1.2.0",
     "bumpp": "^9.2.1",
     "eslint": "^8.56.0",
     "eslint-config-prettier": "^9.1.0",

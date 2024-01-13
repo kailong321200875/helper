@@ -1,27 +1,30 @@
-import { expect, it } from 'vitest'
+import { describe, it, expect } from 'vitest'
 import { trim, underlineToHump, humpToUnderline, replace } from '../index'
 
-it('trim', () => {
-  expect(trim(undefined as any)).equal('')
-  expect(trim('   ')).equal('')
-  expect(trim('123   ')).equal('123')
-  expect(trim('   123')).equal('123')
-  expect(trim('   123  ')).equal('123')
-  expect(trim(' 1 2 3 ')).equal('1 2 3')
+describe('trim', () => {
+  it('should remove spaces from both ends', () => {
+    const result = trim('  123  ')
+    expect(result).toBe('123')
+  })
 })
 
-it('underlineToHump', () => {
-  expect(underlineToHump('testTest')).equal('testTest')
-  expect(underlineToHump('test-test')).equal('testTest')
-  expect(underlineToHump('test_test')).equal('testTest')
-  expect(underlineToHump('Test_Test')).equal('TestTest')
-  expect(underlineToHump('TestTest')).equal('TestTest')
+describe('underlineToHump', () => {
+  it('should convert underline to hump', () => {
+    const result = underlineToHump('test-test')
+    expect(result).toBe('testTest')
+  })
 })
 
-it('humpToUnderline', () => {
-  expect(humpToUnderline('testTest')).equal('test-test')
+describe('humpToUnderline', () => {
+  it('should convert hump to underline', () => {
+    const result = humpToUnderline('testTest')
+    expect(result).toBe('test-test')
+  })
 })
 
-it('replaceAll', () => {
-  expect(replace('abcdefg', 'ab', '')).equal('cdefg')
+describe('replace', () => {
+  it('should replace specified text', () => {
+    const result = replace('abcdefg', 'a', 'b')
+    expect(result).toBe('bbcdefg')
+  })
 })

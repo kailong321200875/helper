@@ -11,7 +11,7 @@ const MOZ_HACK_REGEXP = /^moz([A-Z])/
  * ```
  */
 export const trim = (s: string): string => {
-  return (s || '').replace(/^[\s\uFEFF]+|[\s\uFEFF]+$/g, '')
+  return s.replace(/^[\s\uFEFF]+|[\s\uFEFF]+$/g, '')
 }
 
 /**
@@ -25,8 +25,8 @@ export const trim = (s: string): string => {
  */
 export const underlineToHump = (name: string): string => {
   return name
-    .replace(SPECIAL_CHARS_REGEXP, function (_, __, letter, offset) {
-      return offset ? letter.toUpperCase() : letter
+    .replace(SPECIAL_CHARS_REGEXP, function (_, __, letter) {
+      return letter.toUpperCase()
     })
     .replace(MOZ_HACK_REGEXP, 'Moz$1')
 }

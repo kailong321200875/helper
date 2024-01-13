@@ -7,3 +7,4 @@ dist
 pnpm-debug
 coverage
 docs
+html

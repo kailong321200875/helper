@@ -1,2 +1,6 @@
 export * from './string'
 export * from './is'
+export * from './dom'
+export * from './tree'
+export * from './array'
+export * from './color'
