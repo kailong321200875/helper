@@ -38,7 +38,15 @@
   ],
   "author": "Archer <502431556@qq.com>",
   "license": "ISC",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
   "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
+    },
     "./string": {
       "types": "./dist/string.d.ts",
       "import": "./dist/string.mjs",

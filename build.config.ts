@@ -1,11 +1,11 @@
 import { defineBuildConfig } from 'unbuild'
 
-const entries = ['string', 'is']
+const entries = ['string', 'is', 'index']
 
 export default defineBuildConfig({
   clean: true,
   entries: entries.map((input) => ({
-    input: `src/${input}/index`,
+    input: input === 'index' ? 'src/index' : `src/${input}/index`,
     name: input
   })),
   declaration: true,
