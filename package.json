@@ -1,9 +1,8 @@
 {
-  "name": "cool-helper",
+  "name": "arsenal-helper",
   "type": "module",
-  "version": "1.7.8",
+  "version": "1.7.9",
   "description": "My arsenal. (工具集军火库)",
-  "private": false,
   "scripts": {
     "coverage": "vitest run --coverage",
     "build": "unbuild --minify",
@@ -16,7 +15,7 @@
     "lint:all": "pnpm run lint:eslint && pnpm run lint:format",
     "doc": "typedoc --options typedoc.json",
     "prepublishOnly": "pnpm run build",
-    "release": "bumpp --commit \"release: release v%s\" --push --tag && npm publish --access=public",
+    "release": "bumpp --commit \"release: release v%s\" --push --tag && npm publish",
     "npm:up": "pnpx npm-check-updates",
     "test:watch": "vitest --watch",
     "test": "vitest run",
