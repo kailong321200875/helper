@@ -1,5 +1,13 @@
 {
-  "entryPoints": ["./src/string", "./src/is"],
+  "entryPoints": [
+    "./src/string",
+    "./src/is",
+    "./src/array",
+    "./src/color",
+    "./src/dom",
+    "./src/time",
+    "./src/tree"
+  ],
   "out": "docs",
   "readme": "./README.docs.md"
 }
