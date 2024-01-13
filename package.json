@@ -1,7 +1,7 @@
 {
   "name": "arsenal-helper",
   "type": "module",
-  "version": "1.7.9",
+  "version": "1.7.10",
   "description": "My arsenal. (工具集军火库)",
   "scripts": {
     "coverage": "vitest run --coverage",
@@ -49,6 +49,7 @@
       "require": "./dist/is.cjs"
     }
   },
+  "types": "./dist/index.d.ts",
   "files": [
     "dist"
   ],
