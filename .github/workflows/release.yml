@@ -53,7 +53,7 @@ jobs:
       - name: Build github
         run: |
           pnpm install --no-frozen-lockfile
-          pnpm run doc
+          pnpm run docs
 
       - name: Deploy github
         uses: peaceiris/actions-gh-pages@v3
