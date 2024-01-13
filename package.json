@@ -40,14 +40,14 @@
   "license": "ISC",
   "exports": {
     "./string": {
-      "import": {
-        "default": "./dist/string.mjs",
-        "types": "./dist/string.d.mts"
-      },
-      "require": {
-        "default": "./dist/string.cjs",
-        "types": "./dist/string.d.cts"
-      }
+      "types": "./dist/string.d.ts",
+      "import": "./dist/string.mjs",
+      "require": "./dist/string.cjs"
+    },
+    "./is": {
+      "types": "./dist/is.d.ts",
+      "import": "./dist/is.mjs",
+      "require": "./dist/is.cjs"
     }
   },
   "files": [
