@@ -1,4 +1,4 @@
-import { expect, it } from 'vitest'
+import { describe, expect, it } from 'vitest'
 import {
   isServer,
   isEdge,
@@ -20,7 +20,9 @@ import {
   isMap,
   isClient,
   isUrl,
-  isEmail
+  isEmail,
+  isImgPath,
+  isEmptyVal
 } from '../index'
 
 it('isServer', () => {
@@ -189,4 +191,36 @@ it('isUrl', () => {
 it('isEmail', () => {
   expect(isEmail('502431556@qq.com')).toBeTruthy()
   expect(isEmail('502431556@qq')).toBeFalsy()
+})
+
+describe('isImgPath', () => {
+  it('should return true for valid image URLs', () => {
+    expect(isImgPath('http://www.baidu.com/1.png')).toBe(true)
+    expect(isImgPath('https://www.example.com/image.jpg')).toBe(true)
+    expect(
+      isImgPath(
+        'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO9TXL0Y4OHwAAAABJRU5ErkJggg=='
+      )
+    ).toBe(true)
+  })
+
+  it('should return false for invalid image URLs', () => {
+    expect(isImgPath('http://www.baidu.com')).toBe(false)
+    expect(isImgPath('https://www.example.com/image.txt')).toBe(false)
+    expect(isImgPath('data:text/plain;base64,SGVsbG8sIFdvcmxkIQ%3D%3D')).toBe(false)
+  })
+})
+
+describe('isEmptyVal', () => {
+  it('should return true for empty values', () => {
+    expect(isEmptyVal('')).toBe(true)
+    expect(isEmptyVal(null)).toBe(true)
+    expect(isEmptyVal(undefined)).toBe(true)
+  })
+
+  it('should return false for non-empty values', () => {
+    expect(isEmptyVal('Hello')).toBe(false)
+    expect(isEmptyVal(0)).toBe(false)
+    expect(isEmptyVal(false)).toBe(false)
+  })
 })

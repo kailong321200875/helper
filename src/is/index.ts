@@ -397,3 +397,31 @@ export const isEmail = (val: string): boolean => {
   const reg = /^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+(.[a-zA-Z0-9_-])+/g
   return reg.test(val)
 }
+
+/**
+ * 判断是否是合法的图片
+ * @category Is
+ * @param val 需要验证的值
+ * @example
+ * ``` typescript
+ * isImgPath('http://www.baidu.com/1.png')
+ * ```
+ */
+export const isImgPath = (val: string): boolean => {
+  return /(https?:\/\/.*\.(png|jpg|jpeg|gif|svg|webp|ico))|(data:image\/\w+;base64,[\w+/=]+)/i.test(
+    val
+  )
+}
+
+/**
+ * 判断是否是空值
+ * @category Is
+ * @param val 需要验证的值
+ * @example
+ * ``` typescript
+ * isEmptyVal('')
+ * ```
+ */
+export const isEmptyVal = (val: any): boolean => {
+  return val === '' || val === null || val === undefined
+}

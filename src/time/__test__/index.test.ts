@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { formatTime, timestamp } from '../index'
+import { formatTime, sleep, timestamp } from '../index'
 
 describe('formatTime', () => {
   it('should format time correctly', () => {
@@ -27,5 +27,15 @@ describe('timestamp', () => {
 
     expect(result).toBeGreaterThanOrEqual(before)
     expect(result).toBeLessThanOrEqual(after)
+  })
+})
+
+describe('sleep', () => {
+  it('should pause execution for the specified time', async () => {
+    const startTime = Date.now()
+    await sleep(1000)
+    const endTime = Date.now()
+    const elapsedTime = endTime - startTime
+    expect(elapsedTime).toBeGreaterThanOrEqual(1000)
   })
 })
