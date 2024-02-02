@@ -32,7 +32,7 @@ export const underlineToHump = (name: string): string => {
 }
 
 /**
- * 驼峰字符串转下划线
+ * 驼峰字符串转中划线
  * @category String
  * @param str 驼峰字符串
  * @example
@@ -58,4 +58,66 @@ export const humpToUnderline = (str: string): string => {
 export const replace = (str: string, findText: string, repText: string) => {
   const regExp = new RegExp(findText, 'g')
   return str.replace(regExp, repText)
+}
+
+/**
+ * 手机号码中间四位替换成*
+ * @category String
+ * @param phone 手机号码
+ * @example
+ * ``` typescript
+ * phoneToAsterisk('12345678901')
+ * ```
+ * @returns 123****8901
+ */
+export const phoneToAsterisk = (phone: string): string => {
+  return phone.replace(/(\d{3})\d{4}(\d{4})/, '$1****$2')
+}
+
+/**
+ * 全角转换为半角
+ * @category String
+ * @param s 需要转换的字符串
+ * @example
+ * ``` typescript
+ * toCDB('１２３４５６')
+ * ```
+ * @returns 123456
+ */
+export const toCDB = (s: string): string => {
+  const result = s.split('').map((char: string) => {
+    const code = char.charCodeAt(0)
+    if (code >= 65281 && code <= 65374) {
+      return String.fromCharCode(code - 65248)
+    }
+    if (code === 12288) {
+      return String.fromCharCode(32)
+    }
+    return char
+  })
+  return result.join('')
+}
+
+/**
+ * 半角转换为全角
+ * @category String
+ * @param s 需要转换的字符串
+ * @example
+ * ``` typescript
+ * toDBC('123456')
+ * ```
+ * @returns １２３４５６
+ */
+export const toDBC = (s: string): string => {
+  const result = s.split('').map((char: string) => {
+    const code = char.charCodeAt(0)
+    if (code >= 33 && code <= 126) {
+      return String.fromCharCode(code + 65248)
+    }
+    if (code === 32) {
+      return String.fromCharCode(12288)
+    }
+    return char
+  })
+  return result.join('')
 }

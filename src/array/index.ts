@@ -50,3 +50,17 @@ export const move = <T = any>(ary: T[], fromIndex: number, toIndex: number): T[]
   ;[ary[fromIndex], ary[toIndex]] = [ary[toIndex], ary[fromIndex]]
   return ary
 }
+
+/**
+ * 数组乱序
+ * @category Array
+ * @param ary 查找的数组
+ * @returns 返回乱序后的数组
+ * @example
+ * ``` typescript
+ * shuffle([1, 2, 3])
+ * ```
+ */
+export const shuffle = <T = any>(ary: T[]): T[] => {
+  return ary.sort(() => Math.random() - 0.5)
+}

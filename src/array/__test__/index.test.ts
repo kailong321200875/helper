@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest'
-import { findIndex, move } from '../index'
+import { findIndex, move, shuffle } from '../index'
 
 describe('findIndex', () => {
   it('should return the index of the first element that satisfies the provided testing function', () => {
@@ -38,5 +38,19 @@ describe('move', () => {
   it('should handle out of bounds indices', () => {
     expect(() => move([1, 2, 3], 0, 5)).toThrowError('Index out of bounds')
     expect(() => move([1, 2, 3], 5, 0)).toThrowError('Index out of bounds')
+  })
+})
+
+describe('shuffle', () => {
+  it('should return an array with the same length', () => {
+    const ary = [1, 2, 3, 4, 5]
+    const shuffled = shuffle(ary)
+    expect(shuffled.length).toBe(ary.length)
+  })
+
+  it('should return an array with the same elements', () => {
+    const ary = [1, 2, 3, 4, 5]
+    const shuffled = shuffle(ary)
+    expect(shuffled.sort()).toEqual(ary.sort())
   })
 })
